@@ -618,10 +618,19 @@ function sendOrder(platform){
   if(!wilaya){showToast('Sélectionnez une wilaya.');return;}
 
   const total=cart.reduce((s,i)=>s+i.product.price*i.qty,0);
-  const itemLines=cart.map(i=>`• Réf: ${i.product.ref} — ${i.product.name} ×${i.qty} = ${(i.product.price*i.qty).toLocaleString()} DA`).join('\n');
-  const refs=cart.map(i=>`${i.product.ref}(×${i.qty})`).join(', ');
+  const itemLines=cart.map(i=>`- Ref: ${i.product.ref} - ${i.product.name} x${i.qty}`).join('\n');
+  const refs=cart.map(i=>`${i.product.ref}(x${i.qty})`).join(', ');
 
-  const msg=`🕶 *COMMANDE — Hakim Lunettes*\n\n👤 Nom: ${name}\n📞 Tél: ${phone}\n📍 Wilaya: ${wilaya}\n\n📦 *Articles commandés:*\n${itemLines}\n\n📋 *Références:* ${refs}\n💰 *Total estimé:* ${total.toLocaleString()} DA${note?`\n📝 Note: ${note}`:''}`;
+  const msg=`COMMANDE - Hakim Lunettes
+
+Nom: ${name}
+Tel: ${phone}
+Wilaya: ${wilaya}
+
+Articles commandes:
+${itemLines}
+
+References: ${refs}${note ? '\nNote: ' + note : ''}`;
 
   // Save to admin storage
   const orders=JSON.parse(localStorage.getItem(STORE_ORDERS)||'[]');
