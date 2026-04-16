@@ -472,7 +472,7 @@ function renderCatalog(reset=true){
 function loadMore(){
   if(isLoadingMore) return;
   const products=getProducts();
-  const filtered=activeFilter?products.filter(p=>p.category===activeFilter):products;
+  const filtered=activeFilter?products.filter(p=>p.category && p.category.includes(activeFilter)):products;
   if(displayedCount<filtered.length){
     isLoadingMore=true;
     renderCatalog(false);
@@ -485,6 +485,11 @@ function filterCat(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderCatalog(true);
+  // Re-setup scroll observer after filter change
+  setTimeout(()=>{
+    const sentinel = document.getElementById('load-sentinel');
+    if(sentinel) scrollObserver.observe(sentinel);
+  },100);
 }
 
 function openModal(idx){
