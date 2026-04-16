@@ -309,7 +309,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:1.8rem
   <div class="cart-footer" id="cartFooter" style="display:none;">
     <div class="order-form-mini">
       <input class="mini-input" id="c-name" placeholder="Votre nom *">
-      <input class="mini-input" id="c-phone" placeholder="Téléphone *" type="tel">
+      <input class="mini-input" id="c-phone" placeholder="05XX XXX XXX *" type="tel">
       <select class="mini-select mini-full" id="c-wilaya">
         <option value="">Wilaya *</option>
         <option>01–Adrar</option><option>02–Chlef</option><option>03–Laghouat</option>
@@ -425,7 +425,7 @@ async function loadProducts(){
 function renderCatalog(reset=true){
   const products=getProducts();
   const grid=document.getElementById('productGrid');
-  const filtered=activeFilter?products.filter(p=>p.category===activeFilter):products;
+  const filtered=activeFilter?products.filter(p=>p.category && p.category.includes(activeFilter)):products;
   if(reset){displayedCount=0;grid.innerHTML='';}
   if(!filtered.length){
     grid.innerHTML=`<div class="no-products">🕶 Aucun produit disponible pour le moment.<br><span style="font-size:.85rem;">L'administrateur ajoutera les produits bientôt.</span></div>`;
@@ -587,11 +587,32 @@ function closeCart(){
 
 function sendOrder(platform){
   if(!cart.length){showToast('Panier vide !');return;}
-  const name=document.getElementById('c-name').value.trim();
-  const phone=document.getElementById('c-phone').value.trim();
+  const nameInput=document.getElementById('c-name');
+  const phoneInput=document.getElementById('c-phone');
+  const name=nameInput.value.trim();
+  const phone=phoneInput.value.trim();
   const wilaya=document.getElementById('c-wilaya').value;
   const note=document.getElementById('c-note').value.trim();
-  if(!name||!phone||!wilaya){showToast('Remplissez nom, téléphone et wilaya.');return;}
+  
+  // Validate name - letters only, min 2 chars
+  const nameRegex=/^[a-zA-Z\u0600-\u06FF\s]{2,}$/;
+  if(!nameRegex.test(name)){
+    nameInput.style.borderColor='#e74c3c';
+    showToast('Entrez un nom valide (lettres seulement)');
+    return;
+  }
+  nameInput.style.borderColor='';
+  
+  // Validate phone - Algerian format (starts with 05, 06, 07 and 10 digits)
+  const phoneRegex=/^(0[567][0-9]{8})$/;
+  if(!phoneRegex.test(phone)){
+    phoneInput.style.borderColor='#e74c3c';
+    showToast('Numéro de téléphone invalide (ex: 0551 234 567)');
+    return;
+  }
+  phoneInput.style.borderColor='';
+  
+  if(!wilaya){showToast('Sélectionnez une wilaya.');return;}
 
   const total=cart.reduce((s,i)=>s+i.product.price*i.qty,0);
   const itemLines=cart.map(i=>`• Réf: ${i.product.ref} — ${i.product.name} ×${i.qty} = ${(i.product.price*i.qty).toLocaleString()} DA`).join('\n');
