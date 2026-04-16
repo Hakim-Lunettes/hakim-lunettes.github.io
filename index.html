@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakim Lunettes – بيع بالجملة | Vente en Gros</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=Cinzel:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#c9a84c;--gold-light:#e8c96a;--gold-dim:#8a6e2f;
+  --black:#0a0a0a;--dark:#111;--dark2:#1a1a1a;--dark3:#222;
+  --white:#f5f0e8;--dim:rgba(245,240,232,0.6);
+  --border:rgba(201,168,76,0.22);--red:#c0392b;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.4}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;animation:slideDown .6s ease forwards}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.header-brand{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.header-contacts{display:flex;gap:1.2rem;align-items:center}
+.header-contacts a{display:flex;align-items:center;gap:.4rem;color:var(--dim);text-decoration:none;font-size:.85rem;letter-spacing:.05em;transition:color .3s}
+.header-contacts a:hover{color:var(--gold-light)}
+.icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem}
+.icon-ph{background:var(--gold);color:var(--black)}.icon-wa{background:#25D366;color:#fff}.icon-tg{background:#229ED9;color:#fff}
+.cart-btn{position:relative;background:var(--gold);color:var(--black);border:none;padding:.5rem 1.2rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:.5rem}
+.cart-btn:hover{background:var(--gold-light)}
+.cart-count{background:var(--black);color:var(--gold);width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700}
+
+/* HERO */
+.hero{min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:5rem 2rem 3rem}
+.hero::after{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.hero-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-lines::before{content:'';position:absolute;top:-10%;left:-10%;width:120%;height:120%;background:linear-gradient(135deg,transparent 48%,rgba(201,168,76,.04) 49%,rgba(201,168,76,.04) 51%,transparent 52%),linear-gradient(45deg,transparent 48%,rgba(201,168,76,.03) 49%,rgba(201,168,76,.03) 51%,transparent 52%);background-size:80px 80px}
+.hero-badge{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.3em;color:var(--gold);border:1px solid var(--border);padding:.4rem 1.5rem;margin-bottom:2rem;animation:fadeUp .8s .2s ease both}
+.hero-arabic{font-family:'Noto Naskh Arabic',serif;font-size:clamp(2.5rem,7vw,5rem);font-weight:700;color:var(--gold);text-align:center;margin-bottom:.2rem;animation:fadeUp .8s .4s ease both;text-shadow:0 0 60px rgba(201,168,76,.2)}
+.hero-latin{font-family:'Cinzel',serif;font-size:clamp(1.4rem,4vw,2.8rem);font-weight:600;letter-spacing:.2em;text-align:center;text-transform:uppercase;margin-bottom:.4rem;animation:fadeUp .8s .55s ease both}
+.hero-sub{font-size:.9rem;letter-spacing:.3em;color:var(--gold);text-align:center;margin-bottom:2.5rem;animation:fadeUp .8s .7s ease both}
+.divider{display:flex;align-items:center;gap:1rem;margin:0 auto 2rem;animation:fadeUp .8s .85s ease both}
+.div-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}.div-line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.div-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.hero-cta{animation:fadeUp .8s 1s ease both;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.btn-primary{background:var(--gold);color:var(--black);padding:.9rem 2rem;font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;display:inline-block;text-decoration:none}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.3)}
+.btn-outline{background:transparent;color:var(--gold);padding:.9rem 2rem;font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;transition:all .3s;display:inline-block;text-decoration:none}
+.btn-outline:hover{background:rgba(201,168,76,.1);transform:translateY(-2px)}
+
+/* TRUST */
+.trust-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--dark2);padding:1.2rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.ti{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+.ti-num{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold)}
+.ti-lbl{font-size:.7rem;letter-spacing:.15em;color:var(--dim);text-transform:uppercase;text-align:center}
+
+/* CATALOG */
+.catalog-section{padding:5rem 2rem;max-width:1300px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3rem}
+.sec-eyebrow{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.8rem}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3rem);color:var(--white)}
+.sec-title-ar{font-family:'Noto Naskh Arabic',serif;font-size:1.2rem;color:var(--gold-dim);display:block}
+.filter-bar{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
+.filter-btn{background:var(--dark2);border:1px solid var(--border);color:var(--dim);padding:.45rem 1.1rem;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.filter-btn.active,.filter-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5px}
+.product-card{background:var(--dark2);border:1px solid transparent;cursor:pointer;overflow:hidden;position:relative;transition:border-color .3s,transform .3s}
+.product-card:hover{border-color:var(--border);transform:translateY(-3px)}
+.product-card:hover .pc-img-wrap img{transform:scale(1.05)}
+.pc-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--dark3);display:flex;align-items:center;justify-content:center;position:relative}
+.pc-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pc-img-placeholder{font-size:3.5rem;opacity:.3}
+.pc-badge{position:absolute;top:.7rem;left:.7rem;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;background:var(--gold);color:var(--black);padding:.2rem .6rem}
+.pc-out-badge{position:absolute;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15em;color:#fff}
+.pc-body{padding:1rem 1.2rem 1.2rem}
+.pc-ref{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold);margin-bottom:.3rem}
+.pc-name{font-size:1.05rem;color:var(--white);font-weight:600;margin-bottom:.3rem;line-height:1.3}
+.pc-cat{font-size:.75rem;color:var(--dim);margin-bottom:.7rem}
+.pc-footer{display:flex;align-items:center;justify-content:space-between}
+.pc-price{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold-light)}
+.pc-add{background:var(--gold);color:var(--black);border:none;width:30px;height:30px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0}
+.pc-add:hover{background:var(--gold-light);transform:scale(1.1)}
+.pc-add:disabled{background:var(--dark3);color:var(--dim);cursor:not-allowed}
+.no-products{text-align:center;padding:4rem;color:var(--dim);font-size:1.1rem;grid-column:1/-1}
+
+/* PRODUCT MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.pm-modal{background:var(--dark2);border:1px solid var(--border);width:820px;max-width:95vw;max-height:90vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;transform:translateY(20px);transition:transform .3s;position:relative}
+.modal-overlay.open .pm-modal{transform:translateY(0)}
+.pm-img-side{background:var(--dark3);display:flex;align-items:center;justify-content:center;min-height:320px;position:relative;overflow:hidden}
+.pm-img-side img{width:100%;height:100%;object-fit:cover}
+.pm-img-placeholder{font-size:5rem;opacity:.3}
+.pm-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.6);border:1px solid var(--border);color:var(--white);width:32px;height:32px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:2}
+.pm-close:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.pm-info{padding:2rem;display:flex;flex-direction:column}
+.pm-ref{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.5rem}
+.pm-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--white);margin-bottom:.3rem;line-height:1.25}
+.pm-cat{font-size:.85rem;color:var(--dim);margin-bottom:1rem}
+.pm-price{font-family:'Cinzel',serif;font-size:1.6rem;color:var(--gold-light);margin-bottom:1rem}
+.pm-desc{font-size:.95rem;color:var(--dim);line-height:1.7;margin-bottom:1.5rem;flex:1}
+.pm-qty-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.pm-qty-label{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.qty-ctrl{display:flex;align-items:center}
+.qty-btn{background:var(--dark3);border:1px solid var(--border);color:var(--white);width:32px;height:32px;cursor:pointer;font-size:1rem;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.qty-num{background:var(--dark3);border-top:1px solid var(--border);border-bottom:1px solid var(--border);width:44px;height:32px;text-align:center;color:var(--white);font-family:'Cinzel',serif;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.pm-add-btn{background:var(--gold);color:var(--black);border:none;padding:1rem;font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;width:100%}
+.pm-add-btn:hover{background:var(--gold-light)}
+.pm-add-btn:disabled{background:var(--dark3);color:var(--dim);cursor:not-allowed}
+.pm-stock-out{text-align:center;color:#e74c3c;font-size:.85rem;letter-spacing:.1em;padding:1rem;border:1px solid rgba(192,57,43,.3);background:rgba(192,57,43,.05)}
+
+/* CART */
+.cart-panel{position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100vw;background:var(--dark);border-left:1px solid var(--border);z-index:300;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.cart-panel.open{transform:translateX(0)}
+.cart-header{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cart-header-title{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.15em;color:var(--gold)}
+.cart-x{background:none;border:none;color:var(--dim);cursor:pointer;font-size:1.4rem;transition:color .3s}
+.cart-x:hover{color:var(--gold)}
+.cart-items{flex:1;overflow-y:auto;padding:1rem 1.5rem}
+.cart-empty{text-align:center;padding:3rem 1rem;color:var(--dim)}
+.cart-empty div{font-size:2.5rem;margin-bottom:.8rem}
+.cart-item{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px solid rgba(201,168,76,.08);align-items:center}
+.ci-img{width:54px;height:42px;object-fit:cover;border:1px solid var(--border);flex-shrink:0}
+.ci-img-ph{width:54px;height:42px;background:var(--dark3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.ci-info{flex:1;min-width:0}
+.ci-ref{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.12em;color:var(--gold)}
+.ci-name{font-size:.9rem;font-weight:600;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-price{font-size:.85rem;color:var(--dim)}
+.ci-controls{display:flex;align-items:center;gap:.4rem;flex-shrink:0}
+.ci-qty-btn{background:var(--dark3);border:1px solid var(--border);color:var(--white);width:24px;height:24px;cursor:pointer;font-size:.85rem;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.ci-qty-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.ci-qty{font-family:'Cinzel',serif;font-size:.85rem;min-width:20px;text-align:center}
+.ci-del{background:none;border:none;color:rgba(192,57,43,.7);cursor:pointer;font-size:1rem;transition:color .3s;margin-left:.3rem}
+.ci-del:hover{color:var(--red)}
+.ci-subtotal{font-family:'Cinzel',serif;font-size:.85rem;color:var(--gold-light);min-width:70px;text-align:right;flex-shrink:0}
+.cart-footer{padding:1.2rem 1.5rem;border-top:1px solid var(--border);flex-shrink:0}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem}
+.cart-total-lbl{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.15em;color:var(--dim);text-transform:uppercase}
+.cart-total-val{font-family:'Cinzel',serif;font-size:1.4rem;color:var(--gold-light)}
+.order-form-mini{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem}
+.mini-input,.mini-select{background:var(--dark3);border:1px solid var(--border);color:var(--white);padding:.6rem .8rem;font-family:inherit;font-size:.85rem;outline:none;transition:border-color .3s;width:100%}
+.mini-input:focus,.mini-select:focus{border-color:var(--gold)}
+.mini-input::placeholder{color:rgba(245,240,232,.3)}
+.mini-select option{background:var(--dark3)}
+.mini-full{grid-column:1/-1}
+.send-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.send-btn{padding:.8rem .5rem;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.send-wa{background:#25D366;color:#fff}.send-wa:hover{background:#1ebe5d}
+.send-ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}.send-ig:hover{opacity:.9}
+.send-tg{background:#229ED9;color:#fff}.send-tg:hover{background:#1a8fc5}
+.send-ms{background:#0084ff;color:#fff}.send-ms:hover{background:#006acc}
+.cart-note{font-size:.72rem;color:var(--dim);text-align:center;margin-top:.5rem;line-height:1.5}
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:299;display:none}
+.cart-overlay.open{display:block}
+
+/* CONTACT */
+.contact-section{background:var(--dark);border-top:1px solid var(--border);padding:4rem 2rem}
+.contact-inner{max-width:640px;margin:0 auto;display:grid;gap:1rem}
+.contact-card{display:flex;align-items:center;gap:1.5rem;background:var(--dark2);border:1px solid var(--border);padding:1.5rem 1.8rem;text-decoration:none;color:inherit;transition:all .3s;position:relative;overflow:hidden}
+.contact-card::after{content:'→';position:absolute;right:1.8rem;top:50%;transform:translateY(-50%) translateX(10px);color:var(--gold);opacity:0;transition:all .3s}
+.contact-card:hover{border-color:var(--gold);transform:translateX(5px)}
+.contact-card:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.c-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}
+.c-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.2rem}
+.c-number{font-size:1.4rem;color:var(--white);letter-spacing:.08em;font-weight:600}
+
+footer{background:var(--black);border-top:1px solid var(--border);padding:1.8rem;text-align:center}
+.f-logo{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.3rem}
+.f-ar{font-family:'Noto Naskh Arabic',serif;font-size:.9rem;color:var(--gold-dim);margin-bottom:.5rem}
+.f-copy{font-size:.7rem;color:rgba(245,240,232,.25);letter-spacing:.1em}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gold);color:var(--black);padding:.7rem 1.8rem;font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.12em;z-index:999;transition:transform .35s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media(max-width:700px){
+  .pm-modal{grid-template-columns:1fr}
+  .pm-img-side{min-height:220px}
+  .header-contacts{display:none}
+  .order-form-mini{grid-template-columns:1fr}
+  .mini-full{grid-column:1}
+}
+@media(max-width:480px){.cart-panel{width:100vw}.trust-bar{gap:1.5rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">Hakim Lunettes</div>
+  <div class="header-contacts">
+    <a href="tel:0798887706"><span class="icon icon-ph">📞</span>0798 887 706</a>
+    <a href="https://wa.me/213798887706" target="_blank"><span class="icon icon-wa">💬</span>WhatsApp</a>
+    <a href="https://t.me/+213798887706" target="_blank"><span class="icon icon-tg">✈</span>Telegram</a>
+  </div>
+  <button class="cart-btn" onclick="openCart()">🛒 Panier <span class="cart-count" id="cartCount">0</span></button>
+</header>
+
+<section class="hero">
+  <div class="hero-lines"></div>
+  <div class="hero-badge">Grossiste Officiel — Algeria</div>
+  <h1 class="hero-arabic">حكيم للنظارات</h1>
+  <div class="hero-latin">Hakim Lunettes</div>
+  <div class="hero-sub">بيع بالجملة &nbsp;·&nbsp; Vente en Gros</div>
+  <div class="divider"><span class="div-line"></span><span class="div-diamond"></span><span class="div-line r"></span></div>
+  <div class="hero-cta">
+    <a href="#catalog" class="btn-primary">Voir les Produits &nbsp;·&nbsp; اكتشف المنتجات</a>
+    <a href="#contact" class="btn-outline">Nous Contacter</a>
+  </div>
+</section>
+
+<div class="trust-bar reveal">
+  <div class="ti"><span class="ti-num">500+</span><span class="ti-lbl">Modèles</span></div>
+  <div class="ti"><span class="ti-num">10+</span><span class="ti-lbl">Années</span></div>
+  <div class="ti"><span class="ti-num">48</span><span class="ti-lbl">Wilayas</span></div>
+  <div class="ti"><span class="ti-num">Gros</span><span class="ti-lbl">Prix Grossiste</span></div>
+</div>
+
+<section class="catalog-section" id="catalog">
+  <div class="section-header reveal">
+    <span class="sec-eyebrow">Notre Collection</span>
+    <h2 class="sec-title">Catalogue Complet <span class="sec-title-ar">الكتالوج</span></h2>
+  </div>
+  <div class="filter-bar reveal" id="filterBar">
+    <button class="filter-btn active" onclick="filterCat('',this)">Tout</button>
+    <button class="filter-btn" onclick="filterCat('Lunettes Solaires',this)">Solaires</button>
+    <button class="filter-btn" onclick="filterCat('Lunettes Optiques',this)">Optiques</button>
+    <button class="filter-btn" onclick="filterCat('Lunettes Sport',this)">Sport</button>
+    <button class="filter-btn" onclick="filterCat('Tendances Fashion',this)">Fashion</button>
+    <button class="filter-btn" onclick="filterCat('Enfants &amp; Juniors',this)">Enfants</button>
+    <button class="filter-btn" onclick="filterCat('Accessoires',this)">Accessoires</button>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="contact-section reveal" id="contact">
+  <div class="section-header" style="text-align:center;margin-bottom:2.5rem;">
+    <span class="sec-eyebrow">Contact Direct</span>
+    <h2 class="sec-title">On est là pour vous <span class="sec-title-ar" style="font-size:1rem;">تواصل معنا</span></h2>
+  </div>
+  <div class="contact-inner">
+    <a href="#" onclick="openContact('phone');return false;" class="contact-card">
+      <div class="c-icon" style="background:var(--gold);color:var(--black);">📞</div>
+      <div><span class="c-label">Téléphone</span><span class="c-number">0798 887 706</span></div>
+    </a>
+    <a href="#" onclick="openContact('whatsapp');return false;" class="contact-card">
+      <div class="c-icon" style="background:#25D366;color:#fff;">💬</div>
+      <div><span class="c-label">WhatsApp</span><span class="c-number">0798 887 706</span></div>
+    </a>
+    <a href="#" onclick="openContact('telegram');return false;" class="contact-card">
+      <div class="c-icon" style="background:#229ED9;color:#fff;">✈</div>
+      <div><span class="c-label">Telegram</span><span class="c-number">0798 887 706</span></div>
+    </a>
+    <a href="#" onclick="openContact('messenger');return false;" class="contact-card">
+      <div class="c-icon" style="background:#0084FF;color:#fff;">💬</div>
+      <div><span class="c-label">Messenger</span><span class="c-number">Envoyer un message</span></div>
+    </a>
+    <a href="#" onclick="openContact('facebook');return false;" class="contact-card">
+      <div class="c-icon" style="background:#1877F2;color:#fff;">f</div>
+      <div><span class="c-label">Facebook</span><span class="c-number">HAKIM Lunettes</span></div>
+    </a>
+    <a href="#" onclick="openContact('instagram');return false;" class="contact-card">
+      <div class="c-icon" style="background:linear-gradient(45deg,#f09433,#e66825,#dc2743,#cc2366,#bc1888);color:#fff;">📷</div>
+      <div><span class="c-label">Instagram</span><span class="c-number">@hakimlunettes31</span></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Hakim Lunettes</div>
+  <div class="f-ar">حكيم للنظارات — بيع بالجملة</div>
+  <div class="f-copy">© 2025 Hakim Lunettes · Vente en Gros · Algérie</div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeProductModal(event)">
+  <div class="pm-modal">
+    <div class="pm-img-side">
+      <img id="pm-img" src="" alt="" style="display:none">
+      <div class="pm-img-placeholder" id="pm-img-ph">🕶</div>
+      <button class="pm-close" onclick="document.getElementById('productModal').classList.remove('open')">✕</button>
+    </div>
+    <div class="pm-info">
+      <div class="pm-ref" id="pm-ref"></div>
+      <div class="pm-name" id="pm-name"></div>
+      <div class="pm-desc" id="pm-desc"></div>
+      <div class="pm-qty-row">
+        <span class="pm-qty-label">Quantité</span>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <div class="qty-num" id="pm-qty">1</div>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+      <button class="pm-add-btn" id="pm-add-btn" onclick="addFromModal()">+ Ajouter au Panier</button>
+      <div class="pm-stock-out" id="pm-out" style="display:none;">Rupture de stock — Contactez-nous</div>
+    </div>
+  </div>
+</div>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <div class="cart-header-title">✦ Votre Panier</div>
+    <button class="cart-x" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="order-form-mini">
+      <input class="mini-input" id="c-name" placeholder="Votre nom *">
+      <input class="mini-input" id="c-phone" placeholder="Téléphone *" type="tel">
+      <select class="mini-select mini-full" id="c-wilaya">
+        <option value="">Wilaya *</option>
+        <option>01–Adrar</option><option>02–Chlef</option><option>03–Laghouat</option>
+        <option>04–Oum El Bouaghi</option><option>05–Batna</option><option>06–Béjaïa</option>
+        <option>07–Biskra</option><option>08–Béchar</option><option>09–Blida</option>
+        <option>10–Bouïra</option><option>11–Tamanrasset</option><option>12–Tébessa</option>
+        <option>13–Tlemcen</option><option>14–Tiaret</option><option>15–Tizi Ouzou</option>
+        <option>16–Alger</option><option>17–Djelfa</option><option>18–Jijel</option>
+        <option>19–Sétif</option><option>20–Saïda</option><option>21–Skikda</option>
+        <option>22–Sidi Bel Abbès</option><option>23–Annaba</option><option>24–Guelma</option>
+        <option>25–Constantine</option><option>26–Médéa</option><option>27–Mostaganem</option>
+        <option>28–M'Sila</option><option>29–Mascara</option><option>30–Ouargla</option>
+        <option>31–Oran</option><option>32–El Bayadh</option><option>33–Illizi</option>
+        <option>34–Bordj Bou Arréridj</option><option>35–Boumerdès</option>
+        <option>36–El Tarf</option><option>37–Tindouf</option><option>38–Tissemsilt</option>
+        <option>39–El Oued</option><option>40–Khenchela</option><option>41–Souk Ahras</option>
+        <option>42–Tipaza</option><option>43–Mila</option><option>44–Aïn Defla</option>
+        <option>45–Naâma</option><option>46–Aïn Témouchent</option><option>47–Ghardaïa</option>
+        <option>48–Relizane</option>
+      </select>
+      <input class="mini-input mini-full" id="c-note" placeholder="Note / message (optionnel)">
+    </div>
+    <div class="send-btns">
+      <button class="send-btn send-wa" onclick="sendOrder('whatsapp')">💬 WhatsApp</button>
+      <button class="send-btn send-tg" onclick="sendOrder('telegram')">✈ Telegram</button>
+      <button class="send-btn send-ig" onclick="sendOrder('instagram')">📸 Instagram</button>
+      <button class="send-btn send-ms" onclick="sendOrder('messenger')">💙 Messenger</button>
+    </div>
+    <div class="cart-note">Votre commande sera envoyée avec toutes les références. Nous vous confirmons rapidement.</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STORE_PRODUCTS='hl_products';
+const STORE_ORDERS='hl_orders';
+let cart=[];
+let currentModal=null;
+let modalQty=1;
+let activeFilter='';
+let productsCache=null;
+let displayedCount=0;
+let isLoadingMore=false;
+const ITEMS_PER_PAGE=24;
+
+function isMobile(){
+  return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+function openContact(type){
+  const phone='213798887706';
+  let url='';
+  
+  if(isMobile()){
+    switch(type){
+      case 'phone': url=`tel:+${phone}`; break;
+      case 'whatsapp': url=`whatsapp://send?phone=${phone}`; break;
+      case 'telegram': url=`tg://resolve?phone=${phone}`; break;
+      case 'messenger': url=`fb-messenger://user/61570741162861`; break;
+      case 'facebook': url=`fb://page/61570741162861`; break;
+      case 'instagram': url=`instagram://user?username=hakimlunettes31`; break;
+    }
+    // Try app first, fallback to web after short delay
+    const start = Date.now();
+    window.location.href = url;
+    setTimeout(() => {
+      if (Date.now() - start < 1000) {
+        // App didn't open, fallback to web
+        fallbackUrl(type, phone);
+      }
+    }, 500);
+  }else{
+    fallbackUrl(type, phone);
+  }
+}
+
+function fallbackUrl(type, phone){
+  switch(type){
+    case 'phone': window.location.href=`tel:+${phone}`; break;
+    case 'whatsapp': window.open(`https://wa.me/${phone}`,'_blank'); break;
+    case 'telegram': window.open(`https://t.me/+${phone}`,'_blank'); break;
+    case 'messenger': window.open(`https://www.facebook.com/messages/t/61570741162861`,'_blank'); break;
+    case 'facebook': window.open(`https://www.facebook.com/people/%D8%AD%D9%83%D9%8A%D9%85-%D9%84%D9%84%D9%86%D8%B8%D8%A7%D8%B1%D8%A7%D8%AA-HAKIM-Lunettes/61570741162861/`,'_blank'); break;
+    case 'instagram': window.open(`https://www.instagram.com/hakimlunettes31/`,'_blank'); break;
+  }
+}
+
+function getProducts(){return productsCache||JSON.parse(localStorage.getItem(STORE_PRODUCTS)||'[]')}
+
+async function loadProducts(){
+  try{
+    const r=await fetch('products.json');
+    if(r.ok){
+      productsCache=await r.json();
+      localStorage.setItem(STORE_PRODUCTS,JSON.stringify(productsCache));
+    }
+  }catch(e){console.log('Using localStorage')}
+  renderCatalog();
+  
+  // Set up scroll observer after render
+  setTimeout(()=>{
+    const grid = document.getElementById('productGrid');
+    const existingSentinel = document.getElementById('load-sentinel');
+    if(existingSentinel){
+      scrollObserver.observe(existingSentinel);
+    }
+  },200);
+}
+
+function renderCatalog(reset=true){
+  const products=getProducts();
+  const grid=document.getElementById('productGrid');
+  const filtered=activeFilter?products.filter(p=>p.category===activeFilter):products;
+  if(reset){displayedCount=0;grid.innerHTML='';}
+  if(!filtered.length){
+    grid.innerHTML=`<div class="no-products">🕶 Aucun produit disponible pour le moment.<br><span style="font-size:.85rem;">L'administrateur ajoutera les produits bientôt.</span></div>`;
+    return;
+  }
+  const toShow=filtered.slice(displayedCount,displayedCount+ITEMS_PER_PAGE);
+  const html=toShow.map(p=>{
+    const realIdx=products.indexOf(p);
+    const imgHtml=p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display:'flex'">`:''
+    const phStyle=p.img?'style="display:none"':'';
+    const outBadge=p.stock==0?`<div class="pc-out-badge">RUPTURE DE STOCK</div>`:'';
+    return `<div class="product-card" onclick="openModal(${realIdx})">
+      <div class="pc-img-wrap">
+        ${imgHtml}
+        <div class="pc-img-placeholder" ${phStyle}>🕶</div>
+        <div class="pc-badge">${p.ref}</div>
+        ${outBadge}
+      </div>
+      <div class="pc-body">
+        <div class="pc-ref">${p.ref}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-footer">
+          <button class="pc-add" onclick="event.stopPropagation();quickAdd(${realIdx})" ${p.stock==0?'disabled':''} title="Ajouter au panier">+</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  grid.insertAdjacentHTML('beforeend',html);
+  displayedCount+=toShow.length;
+  
+  // Update sentinel position
+  let sentinel = document.getElementById('load-sentinel');
+  if (sentinel) sentinel.remove();
+  
+  if(displayedCount<filtered.length){
+    grid.insertAdjacentHTML('beforeend','<div id="load-sentinel"></div>');
+    scrollObserver.observe(document.getElementById('load-sentinel'));
+  }
+}
+
+function loadMore(){
+  if(isLoadingMore) return;
+  const products=getProducts();
+  const filtered=activeFilter?products.filter(p=>p.category===activeFilter):products;
+  if(displayedCount<filtered.length){
+    isLoadingMore=true;
+    renderCatalog(false);
+    setTimeout(()=>{isLoadingMore=false;},300);
+  }
+}
+
+function filterCat(cat,btn){
+  activeFilter=cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCatalog();
+}
+
+function openModal(idx){
+  const p=getProducts()[idx];
+  if(!p)return;
+  currentModal=p;
+  modalQty=1;
+  document.getElementById('pm-ref').textContent=p.ref;
+  document.getElementById('pm-name').textContent=p.name;
+  document.getElementById('pm-desc').textContent=p.desc||'Modèle disponible. Contactez-nous pour plus de détails.';
+  document.getElementById('pm-qty').textContent='1';
+  const imgEl=document.getElementById('pm-img');
+  const phEl=document.getElementById('pm-img-ph');
+  if(p.img){imgEl.src=p.img;imgEl.style.display='block';phEl.style.display='none';}
+  else{imgEl.style.display='none';phEl.style.display='flex';}
+  const addBtn=document.getElementById('pm-add-btn');
+  const outEl=document.getElementById('pm-out');
+  if(p.stock==0){addBtn.style.display='none';outEl.style.display='block';}
+  else{addBtn.style.display='block';outEl.style.display='none';}
+  document.getElementById('productModal').classList.add('open');
+}
+
+function closeProductModal(e){
+  if(!e||e.target===document.getElementById('productModal'))
+    document.getElementById('productModal').classList.remove('open');
+}
+
+function changeQty(d){
+  modalQty=Math.max(1,modalQty+d);
+  document.getElementById('pm-qty').textContent=modalQty;
+}
+
+function addFromModal(){
+  if(!currentModal)return;
+  addToCart(currentModal,modalQty);
+  document.getElementById('productModal').classList.remove('open');
+}
+
+function quickAdd(idx){
+  const p=getProducts()[idx];
+  if(!p||p.stock==0)return;
+  addToCart(p,1);
+}
+
+function addToCart(product,qty){
+  const existing=cart.find(i=>i.product.ref===product.ref);
+  if(existing)existing.qty+=qty;
+  else cart.push({product,qty});
+  updateCartUI();
+  showToast(`✦ ${product.name} ajouté`);
+}
+
+function removeFromCart(ref){
+  cart=cart.filter(i=>i.product.ref!==ref);
+  updateCartUI();
+}
+
+function changeCartQty(ref,d){
+  const item=cart.find(i=>i.product.ref===ref);
+  if(!item)return;
+  item.qty=Math.max(1,item.qty+d);
+  updateCartUI();
+}
+
+function updateCartUI(){
+  document.getElementById('cartCount').textContent=cart.reduce((s,i)=>s+i.qty,0);
+  const itemsEl=document.getElementById('cartItems');
+  const footerEl=document.getElementById('cartFooter');
+  if(!cart.length){
+    itemsEl.innerHTML=`<div class="cart-empty"><div>🛒</div><div>Votre panier est vide.</div><div style="font-size:.8rem;margin-top:.4rem;">Parcourez notre catalogue ci-dessus.</div></div>`;
+    footerEl.style.display='none';
+    return;
+  }
+  footerEl.style.display='block';
+  itemsEl.innerHTML=cart.map(i=>{
+    const imgHtml=i.product.img
+      ?`<img class="ci-img" src="${i.product.img}" alt="${i.product.name}" onerror="this.style.display='none'">`
+      :`<div class="ci-img-ph">🕶</div>`;
+    return `<div class="cart-item">
+      ${imgHtml}
+      <div class="ci-info">
+        <div class="ci-ref">${i.product.ref}</div>
+        <div class="ci-name">${i.product.name}</div>
+      </div>
+      <div class="ci-controls">
+        <button class="ci-qty-btn" onclick="changeCartQty('${i.product.ref}',-1)">−</button>
+        <span class="ci-qty">${i.qty}</span>
+        <button class="ci-qty-btn" onclick="changeCartQty('${i.product.ref}',1)">+</button>
+        <button class="ci-del" onclick="removeFromCart('${i.product.ref}')">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openCart(){
+  document.getElementById('cartPanel').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+}
+function closeCart(){
+  document.getElementById('cartPanel').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+}
+
+function sendOrder(platform){
+  if(!cart.length){showToast('Panier vide !');return;}
+  const name=document.getElementById('c-name').value.trim();
+  const phone=document.getElementById('c-phone').value.trim();
+  const wilaya=document.getElementById('c-wilaya').value;
+  const note=document.getElementById('c-note').value.trim();
+  if(!name||!phone||!wilaya){showToast('Remplissez nom, téléphone et wilaya.');return;}
+
+  const total=cart.reduce((s,i)=>s+i.product.price*i.qty,0);
+  const itemLines=cart.map(i=>`• Réf: ${i.product.ref} — ${i.product.name} ×${i.qty} = ${(i.product.price*i.qty).toLocaleString()} DA`).join('\n');
+  const refs=cart.map(i=>`${i.product.ref}(×${i.qty})`).join(', ');
+
+  const msg=`🕶 *COMMANDE — Hakim Lunettes*\n\n👤 Nom: ${name}\n📞 Tél: ${phone}\n📍 Wilaya: ${wilaya}\n\n📦 *Articles commandés:*\n${itemLines}\n\n📋 *Références:* ${refs}\n💰 *Total estimé:* ${total.toLocaleString()} DA${note?`\n📝 Note: ${note}`:''}`;
+
+  // Save to admin storage
+  const orders=JSON.parse(localStorage.getItem(STORE_ORDERS)||'[]');
+  orders.push({
+    id:Date.now(),client:name,phone,wilaya,
+    items:cart.map(i=>({ref:i.product.ref,name:i.product.name,qty:i.qty,price:i.product.price})),
+    total,note,date:new Date().toLocaleString('fr-DZ')
+  });
+  localStorage.setItem(STORE_ORDERS,JSON.stringify(orders));
+
+  const encoded=encodeURIComponent(msg);
+  const phoneNum='213798887706';
+  
+  if(isMobile()){
+    let appUrl='';
+    switch(platform){
+      case 'whatsapp': appUrl=`whatsapp://send?phone=${phoneNum}`; break;
+      case 'telegram': appUrl=`tg://resolve?phone=${phoneNum}`; break;
+      case 'instagram': appUrl=`instagram://user?username=hakimlunettes31`; break;
+      case 'messenger': appUrl=`fb-messenger://contacts`; break;
+    }
+    
+    // Copy message for user to paste
+    navigator.clipboard?.writeText(decodeURIComponent(encoded)).catch(()=>{});
+    
+    // Use hidden iframe to open app (works better on mobile)
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = appUrl;
+    document.body.appendChild(iframe);
+    
+    // After delay, check if still on same page (app didn't open)
+    setTimeout(() => {
+      if (document.body.contains(iframe)) {
+        sendOrderWeb(platform, encoded);
+        document.body.removeChild(iframe);
+      }
+    }, 1500);
+  } else {
+    // Desktop: use web
+    sendOrderWeb(platform, encoded);
+  }
+
+  cart=[];
+  updateCartUI();
+  ['c-name','c-phone','c-note'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('c-wilaya').value='';
+  setTimeout(closeCart,1500);
+}
+
+function sendOrderWeb(platform, encoded){
+  let url='';
+  if(platform==='whatsapp')url=`https://wa.me/213798887706?text=${encoded}`;
+  else if(platform==='telegram')url=`https://t.me/+213798887706?text=${encoded}`;
+  else if(platform==='instagram')url=`https://www.instagram.com/direct/inbox/`;
+  else if(platform==='messenger')url=`https://www.facebook.com/messages/t/61570741162861`;
+
+  if(platform==='instagram'||platform==='messenger'){
+    navigator.clipboard?.writeText(decodeURIComponent(encoded)).catch(()=>{});
+    showToast('Message copié ! Collez-le dans '+(platform==='instagram'?'Instagram':'Messenger'));
+  }
+  window.open(url,'_blank');
+  showToast('✦ Commande envoyée !');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Infinite scroll
+const scrollObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){loadMore();}});
+},{threshold:0.1});
+
+renderCatalog();
+loadProducts();
+window.addEventListener('storage',e=>{if(e.key===STORE_PRODUCTS){productsCache=null;renderCatalog()}});
+</script>
+</body>
+</html>
