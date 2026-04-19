@@ -691,31 +691,15 @@ References: ${refs}${note ? '\nNote: ' + note : ''}`;
   localStorage.setItem(STORE_ORDERS,JSON.stringify(orders));
 
   const encoded=encodeURIComponent(msg);
-  const phoneNum='213798887706';
+const phoneNum='213798887706';
+  
+  // Clean message for WhatsApp - remove line breaks, use URL encoding
+  const cleanMsg = msg.replace(/\n/g, '%0A');
   
   if(isMobile()){
-    let appUrl='';
-    switch(platform){
-      case 'whatsapp': appUrl=`whatsapp://send?phone=${phoneNum}`; break;
-      case 'telegram': appUrl=`tg://resolve?phone=${phoneNum}`; break;
-    }
-    
-    // Copy message for user to paste
-    navigator.clipboard?.writeText(decodeURIComponent(encoded)).catch(()=>{});
-    
-    // Use hidden iframe to open app (works better on mobile)
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = appUrl;
-    document.body.appendChild(iframe);
-    
-    // After delay, check if still on same page (app didn't open)
-    setTimeout(() => {
-      if (document.body.contains(iframe)) {
-        sendOrderWeb(platform, encoded);
-        document.body.removeChild(iframe);
-      }
-    }, 1500);
+    // On mobile: use wa.me which opens WhatsApp app directly with message
+    const waUrl = `https://wa.me/${phoneNum}?text=${cleanMsg}`;
+    window.location.href = waUrl;
   } else {
     // Desktop: use web
     sendOrderWeb(platform, encoded);
@@ -729,12 +713,14 @@ References: ${refs}${note ? '\nNote: ' + note : ''}`;
 }
 
 function sendOrderWeb(platform, encoded){
+  const phoneNum='213798887706';
+  const cleanMsg = msg.replace(/\n/g, '%0A');
   let url='';
-  if(platform==='whatsapp')url=`https://wa.me/213798887706?text=${encoded}`;
-  else if(platform==='telegram')url=`https://t.me/+213798887706?text=${encoded}`;
+  if(platform==='whatsapp')url=`https://wa.me/${phoneNum}?text=${cleanMsg}`;
+  else if(platform==='telegram')url=`https://t.me/+${phoneNum}?text=${encodeURIComponent(msg)}`;
 
   window.open(url,'_blank');
-  showToast('✦ Commande envoyée !');
+  showToast('Commande envoyee !');
 }
 
 function showToast(msg){
